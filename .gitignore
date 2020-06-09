@@ -4,6 +4,8 @@
 *.env
 
 /node_modules
+/services/*/*
 
 # Keep files
 !/**/.gitkeep
+!/services/**/Dockerfile*
