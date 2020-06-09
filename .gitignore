@@ -1,0 +1,9 @@
+/.idea
+.DS_Store
+.vscode
+*.env
+
+/node_modules
+
+# Keep files
+!/**/.gitkeep

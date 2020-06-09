@@ -1,0 +1,40 @@
+version: "3.6"
+
+services:
+  node:
+    build:
+      context: ./services/node
+      dockerfile: Dockerfile-dev
+    volumes:
+      - "./services/node:/usr/src/app"
+      - "/usr/src/app/node_modules"
+    #    ports:
+    #      - 3001:3001
+    env_file:
+      - dev.env
+
+  webapp:
+    build:
+      context: ./services/webapp
+      dockerfile: Dockerfile-dev
+    volumes:
+      - "./services/webapp:/usr/src/app"
+      - "/usr/src/app/node_modules"
+    #    ports:
+    #      - 3000:3000
+    env_file:
+      - dev.env
+    stdin_open: true
+    depends_on:
+      - node
+
+  nginx:
+    build:
+      context: ./services/nginx
+      dockerfile: Dockerfile-dev
+    restart: always
+    ports:
+      - 80:80
+    depends_on:
+      - node
+      - webapp

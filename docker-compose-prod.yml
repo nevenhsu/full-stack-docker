@@ -1,0 +1,38 @@
+version: "3.6"
+
+services:
+  node-prod:
+    build:
+      context: ./services/node
+      dockerfile: Dockerfile-prod
+    volumes:
+      - "./services/node:/usr/src/app"
+      - "/usr/src/app/node_modules"
+    restart: always
+    #    ports:
+    #      - 3001:3001
+    env_file:
+      - prod.env
+
+  webapp-prod:
+    build:
+      context: ./services/webapp
+      dockerfile: Dockerfile-prod
+    restart: always
+    #    expose:
+    #      - 80
+    env_file:
+      - prod.env
+    depends_on:
+      - node-prod
+
+  nginx-prod:
+    build:
+      context: ./services/nginx
+      dockerfile: Dockerfile-prod
+    restart: always
+    ports:
+      - 80:80
+    depends_on:
+      - node-prod
+      - webapp-prod
