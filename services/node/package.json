@@ -2,14 +2,21 @@
   "name": "node",
   "version": "0.1.0",
   "description": "",
-  "main": "server.js",
+  "main": "server.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "ts-node-dev --transpileOnly server.ts",
+    "start:watch": "ts-node-dev --poll --respawn --transpileOnly server.ts"
   },
   "dependencies": {
     "axios": "^0.18.0",
     "body-parser": "^1.18.3",
     "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.6",
+    "@types/node": "^14.0.13",
+    "ts-node-dev": "^1.0.0-pre.44",
+    "typescript": "^3.9.5"
   }
 }

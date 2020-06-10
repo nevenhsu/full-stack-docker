@@ -1,12 +1,10 @@
 # StartKit with Docker
 
-For Full Stack Developer
-
-nginx:alpine
-
-node:12.18.0
-
-create-react-app
+For Full Stack Developer  
+nginx:alpine  
+node:12.18.0  
+create-react-app  
+typescript
 
 ### Usage
 
