@@ -12,7 +12,9 @@ typescript
 
 #### Development
 
-To start the dev server, use `docker-compose up`
+To start the dev server, use `docker-compose up`  
+To update docker, use `docker-compose up --build`  
+To update npm, use `docker-compose up --build -V`
 
 #### Production
 

@@ -4,7 +4,8 @@
 *.env
 
 /node_modules
-/services/*/*
+# ignore application
+# /services/*/*
 
 # Keep files
 !/**/.gitkeep
