@@ -1,11 +1,30 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Route, Switch, Link } from 'react-router-dom'
+import { ThemeContext, ActionType } from 'theme/ThemeProvider'
+import { makeStyles } from '@material-ui/core/styles'
+import Typography from '@material-ui/core/Typography'
+import Button from '@material-ui/core/Button'
+import MuiLink from '@material-ui/core/Link'
 import logo from './logo.svg'
 import './App.scss'
 
+const useStyles = makeStyles((theme) => ({
+    app: {
+        textAlign: 'center',
+        backgroundColor: theme.palette.background.default,
+    },
+}))
+
 function App() {
+    const [, dispatch] = useContext(ThemeContext)
+    const classes = useStyles()
+
+    const handleToggle = () => {
+        dispatch({ type: ActionType.Toggle })
+    }
+
     return (
-        <div className="App">
+        <div className={classes.app}>
             <>
                 <Switch>
                     <Route
@@ -18,18 +37,26 @@ function App() {
                                     className="App-logo"
                                     alt="logo"
                                 />
-                                <p>
+                                <Typography variant="h5" gutterBottom>
                                     Edit <code>src/App.tsx</code> and save to
                                     reload.
-                                </p>
-                                <li>
+                                </Typography>
+
+                                <div style={{ marginBottom: 24 }}>
                                     <Link
                                         style={{ color: '#61dafb' }}
                                         to="/info"
                                     >
                                         Go to info
                                     </Link>
-                                </li>
+                                </div>
+
+                                <Button
+                                    variant="contained"
+                                    onClick={handleToggle}
+                                >
+                                    Toggle Theme
+                                </Button>
                             </header>
                         )}
                     />
@@ -42,25 +69,26 @@ function App() {
                                     className="App-logo"
                                     alt="logo"
                                 />
-                                <p>
+
+                                <Typography variant="h5" gutterBottom>
                                     Edit <code>src/App.tsx</code> and save to
                                     reload.
-                                </p>
-                                <a
+                                </Typography>
+
+                                <div style={{ marginBottom: 24 }}>
+                                    <Link style={{ color: '#61dafb' }} to="/">
+                                        Go back
+                                    </Link>
+                                </div>
+
+                                <MuiLink
                                     className="App-link"
                                     href="https://reactjs.org"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    style={{ marginBottom: 24 }}
                                 >
                                     Learn React!!
-                                </a>
-
-                                <li style={{ color: '#61dafb' }}>
-                                    <Link style={{ color: '#61dafb' }} to="/">
-                                        Go back
-                                    </Link>
-                                </li>
+                                </MuiLink>
                             </header>
                         )}
                     />

@@ -5,7 +5,7 @@
   "main": "server.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "ts-node-dev --transpileOnly server.ts",
+    "start": "tsc && node server.ts",
     "start:watch": "ts-node-dev --poll --respawn --transpileOnly server.ts"
   },
   "dependencies": {

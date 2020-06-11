@@ -18,7 +18,8 @@ To update npm, use `docker-compose up --build -V`
 
 #### Production
 
-To run production, use `docker-compose -f docker-compose-prod.yml up -d --build`
+To run production, use `docker-compose -f docker-compose-prod.yml up -d --build`  
+To update npm, use `docker-compose -f docker-compose-prod.yml up -d --build -V`
 
 #### Then
 
