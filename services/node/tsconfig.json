@@ -3,8 +3,11 @@
     "lib": ["es2020"],
     "module": "commonjs",
     "target": "es2019",
-    "allowJs": true,
-    "sourceMap": true
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "sourceMap": true,
+    "allowJs": true
   },
   "exclude": ["node_modules"]
 }

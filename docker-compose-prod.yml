@@ -6,7 +6,6 @@ services:
       context: ./services/node
       dockerfile: Dockerfile-prod
     volumes:
-      - "./services/node:/usr/src/app"
       - "/usr/src/app/node_modules"
     restart: always
     #    ports:

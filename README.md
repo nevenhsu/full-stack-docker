@@ -14,12 +14,11 @@ typescript
 
 To start the dev server, use `docker-compose up`  
 To update docker, use `docker-compose up --build`  
-To update npm, use `docker-compose up --build -V`
+To update npm, use `docker-compose exec [container] npm install`
 
 #### Production
 
-To run production, use `docker-compose -f docker-compose-prod.yml up -d --build`  
-To update npm, use `docker-compose -f docker-compose-prod.yml up -d --build -V`
+To run production, use `docker-compose -f docker-compose-prod.yml up -d --build`
 
 #### Then
 
