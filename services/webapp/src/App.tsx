@@ -1,7 +1,8 @@
-import React, { useContext } from 'react'
+import React, { useEffect, useContext } from 'react'
 import { Route, Switch, Link } from 'react-router-dom'
 import { ThemeContext, ActionType } from 'theme/ThemeProvider'
 import { makeStyles } from '@material-ui/core/styles'
+import tempApi from 'services/tempApi'
 import Typography from '@material-ui/core/Typography'
 import Button from '@material-ui/core/Button'
 import MuiLink from '@material-ui/core/Link'
@@ -22,6 +23,13 @@ function App() {
     const handleToggle = () => {
         dispatch({ type: ActionType.Toggle })
     }
+
+    useEffect(() => {
+        tempApi
+            .greet()
+            .then((str) => console.log(str))
+            .catch((error) => console.log(error))
+    }, [])
 
     return (
         <div className={classes.app}>
