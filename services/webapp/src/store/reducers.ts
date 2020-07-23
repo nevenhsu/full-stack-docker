@@ -8,3 +8,5 @@ const createRootReducer = (history: History) =>
         // ... rest of your reducers
     })
 export default createRootReducer
+
+export type RootState = ReturnType<ReturnType<typeof createRootReducer>>

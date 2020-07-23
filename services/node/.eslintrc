@@ -20,6 +20,11 @@
     "plugin:import/typescript"
   ],
   "plugins": ["@typescript-eslint"],
+  "settings": {
+    "import/resolver": {
+      "typescript": {}
+    }
+  },
   "rules": {
     "no-unused-vars": "warn"
   }

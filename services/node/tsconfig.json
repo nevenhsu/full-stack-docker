@@ -1,6 +1,8 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
     "lib": ["es2020", "dom"],
+    "outDir": "build",
     "module": "commonjs",
     "target": "es2019",
     "moduleResolution": "node",
@@ -9,5 +11,5 @@
     "sourceMap": true,
     "allowJs": true
   },
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "build"]
 }
