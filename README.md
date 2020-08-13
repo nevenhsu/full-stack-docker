@@ -2,7 +2,7 @@
 
 For Full Stack Developer  
 nginx:alpine  
-node:12.18.0  
+node:alpine  
 create-react-app  
 typescript
 
