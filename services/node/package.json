@@ -10,7 +10,7 @@
     "start:js": "tsc && node -r tsconfig-paths/register ./build/server.js"
   },
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "body-parser": "^1.18.3",
     "express": "^4.17.1"
   },
