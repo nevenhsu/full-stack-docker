@@ -1,27 +1,30 @@
-import React, { useEffect, useContext } from 'react'
+import { useEffect } from 'react'
 import { Route, Switch, Link } from 'react-router-dom'
-import { ThemeContext, ActionType } from 'theme/ThemeProvider'
-import { makeStyles } from '@material-ui/core/styles'
 import tempApi from 'services/tempApi'
-import Typography from '@material-ui/core/Typography'
-import Button from '@material-ui/core/Button'
-import MuiLink from '@material-ui/core/Link'
+import { useAppDispatch } from 'store/hooks'
+import { toggleMode } from 'store/slices/userDefault'
+import { styled } from '@mui/material/styles'
+import Typography from '@mui/material/Typography'
+import Button from '@mui/material/Button'
+import MuiLink from '@mui/material/Link'
 import logo from './logo.svg'
 import './App.scss'
 
-const useStyles = makeStyles((theme) => ({
-    app: {
+const PREFIX = 'App'
+const classes = {
+    root: `${PREFIX}-root`,
+}
+const Root = styled('div')(({ theme }) => ({
+    [`&.${classes.root}`]: {
         textAlign: 'center',
         backgroundColor: theme.palette.background.default,
     },
 }))
 
-function App() {
-    const [, dispatch] = useContext(ThemeContext)
-    const classes = useStyles()
-
+export default function App() {
+    const dispatch = useAppDispatch()
     const handleToggle = () => {
-        dispatch({ type: ActionType.Toggle })
+        dispatch(toggleMode())
     }
 
     useEffect(() => {
@@ -32,7 +35,7 @@ function App() {
     }, [])
 
     return (
-        <div className={classes.app}>
+        <Root className={classes.root}>
             <>
                 <Switch>
                     <Route
@@ -102,8 +105,6 @@ function App() {
                     />
                 </Switch>
             </>
-        </div>
+        </Root>
     )
 }
-
-export default App

@@ -3,24 +3,20 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import { ConnectedRouter } from 'connected-react-router'
-import configureStore, { history } from 'store/configureStore'
-import CssBaseline from '@material-ui/core/CssBaseline'
+import { store, history } from 'store'
 import ThemeProvider from 'theme/ThemeProvider'
 import App from './App'
-import reportWebVitals from './reportWebVitals';
-
-const store = configureStore({})
+import reportWebVitals from './reportWebVitals'
 
 ReactDOM.render(
     <React.StrictMode>
-        <ThemeProvider>
-            <CssBaseline />
-            <Provider store={store}>
-                <ConnectedRouter history={history}>
+        <Provider store={store}>
+            <ConnectedRouter history={history}>
+                <ThemeProvider>
                     <App />
-                </ConnectedRouter>
-            </Provider>
-        </ThemeProvider>
+                </ThemeProvider>
+            </ConnectedRouter>
+        </Provider>
     </React.StrictMode>,
     document.getElementById('root')
 )
@@ -28,4 +24,4 @@ ReactDOM.render(
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+reportWebVitals()
