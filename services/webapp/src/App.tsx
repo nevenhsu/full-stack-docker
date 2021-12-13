@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { Route, Switch, Link } from 'react-router-dom'
+import { BrowserRouter, Route, Routes, Link } from 'react-router-dom'
 import tempApi from 'services/tempApi'
 import { useAppDispatch } from 'store/hooks'
 import { toggleMode } from 'store/slices/userDefault'
@@ -22,11 +22,6 @@ const Root = styled('div')(({ theme }) => ({
 }))
 
 export default function App() {
-    const dispatch = useAppDispatch()
-    const handleToggle = () => {
-        dispatch(toggleMode())
-    }
-
     useEffect(() => {
         tempApi
             .greet()
@@ -36,75 +31,65 @@ export default function App() {
 
     return (
         <Root className={classes.root}>
-            <>
-                <Switch>
-                    <Route
-                        exact
-                        path="/"
-                        render={() => (
-                            <header className="App-header">
-                                <img
-                                    src={logo}
-                                    className="App-logo"
-                                    alt="logo"
-                                />
-                                <Typography variant="h5" gutterBottom>
-                                    Edit <code>src/App.tsx</code> and save to
-                                    reload.
-                                </Typography>
-
-                                <div style={{ marginBottom: 24 }}>
-                                    <Link
-                                        style={{ color: '#61dafb' }}
-                                        to="/info"
-                                    >
-                                        Go to info
-                                    </Link>
-                                </div>
-
-                                <Button
-                                    variant="contained"
-                                    onClick={handleToggle}
-                                >
-                                    Toggle Theme
-                                </Button>
-                            </header>
-                        )}
-                    />
-                    <Route
-                        path="/info"
-                        render={() => (
-                            <header className="App-header">
-                                <img
-                                    src={logo}
-                                    className="App-logo"
-                                    alt="logo"
-                                />
-
-                                <Typography variant="h5" gutterBottom>
-                                    Edit <code>src/App.tsx</code> and save to
-                                    reload.
-                                </Typography>
-
-                                <div style={{ marginBottom: 24 }}>
-                                    <Link style={{ color: '#61dafb' }} to="/">
-                                        Go back
-                                    </Link>
-                                </div>
-
-                                <MuiLink
-                                    className="App-link"
-                                    href="https://reactjs.org"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                >
-                                    Learn React!!
-                                </MuiLink>
-                            </header>
-                        )}
-                    />
-                </Switch>
-            </>
+            <BrowserRouter>
+                <Routes>
+                    <Route path="/info" element={<Info />} />
+                    <Route path="/" element={<Home />} />
+                </Routes>
+            </BrowserRouter>
         </Root>
+    )
+}
+
+function Home() {
+    const dispatch = useAppDispatch()
+    const handleToggle = () => {
+        dispatch(toggleMode())
+    }
+
+    return (
+        <header className="App-header">
+            <img src={logo} className="App-logo" alt="logo" />
+            <Typography variant="h5" gutterBottom>
+                Edit <code>src/App.tsx</code> and save to reload.
+            </Typography>
+
+            <div style={{ marginBottom: 24 }}>
+                <Link style={{ color: '#61dafb' }} to="/info">
+                    Go to info
+                </Link>
+            </div>
+
+            <Button variant="contained" onClick={handleToggle}>
+                Toggle Theme
+            </Button>
+        </header>
+    )
+}
+
+function Info() {
+    return (
+        <header className="App-header">
+            <img src={logo} className="App-logo" alt="logo" />
+
+            <Typography variant="h5" gutterBottom>
+                Edit <code>src/App.tsx</code> and save to reload.
+            </Typography>
+
+            <div style={{ marginBottom: 24 }}>
+                <Link style={{ color: '#61dafb' }} to="/">
+                    Go back
+                </Link>
+            </div>
+
+            <MuiLink
+                className="App-link"
+                href="https://reactjs.org"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Learn React!!
+            </MuiLink>
+        </header>
     )
 }
