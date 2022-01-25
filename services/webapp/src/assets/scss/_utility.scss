@@ -1,0 +1,34 @@
+/*=====================
+   Utility
+=======================*/
+
+.hidden {
+  position: fixed !important;
+  opacity: 0 !important;
+  cursor: default !important;
+  color: transparent !important;
+  background-color: transparent !important;
+  border-color: transparent !important;
+  pointer-events: none !important;
+}
+
+/*    Align    */
+
+.absolute-center {
+  position: absolute !important;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.absolute-horizontal {
+  position: absolute !important;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.absolute-vertical {
+  position: absolute !important;
+  top: 50%;
+  transform: translateY(-50%);
+}
