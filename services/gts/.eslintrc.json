@@ -1,0 +1,7 @@
+{
+  "rules": {
+    "prettier/prettier": "warn",
+    "no-unused-vars": "warn"
+  },
+  "extends": "./node_modules/gts/"
+}
