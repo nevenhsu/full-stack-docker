@@ -8,7 +8,7 @@ typescript
 
 ### Usage
 
-\*Must have Docker installed
+Must have Docker installed
 
 #### Development
 
@@ -22,4 +22,10 @@ To run production, use `docker-compose -f docker-compose-prod.yml up -d --build`
 
 #### Then
 
-Go to `localhost` depending on which version of docker you have
+Go to `localhost:3000` depending on which version of docker you have
+
+#### Clean Docker
+
+Delete all containers: `docker rm -vf $(docker ps -aq)`  
+Delete all the images: `docker rmi -f $(docker images -aq)`  
+Delete everything: `docker system prune -a --volumes`

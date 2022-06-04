@@ -1,31 +1,3 @@
 {
-  "env": {
-    "es6": true,
-    "node": true
-  },
-  "parser": "@typescript-eslint/parser",
-  "parserOptions": {
-    "ecmaVersion": 2020,
-    "sourceType": "module",
-    "ecmaFeatures": {
-      "modules": true
-    }
-  },
-  "extends": [
-    "eslint:recommended",
-    "plugin:@typescript-eslint/eslint-recommended",
-    "plugin:@typescript-eslint/recommended",
-    "plugin:import/errors",
-    "plugin:import/warnings",
-    "plugin:import/typescript"
-  ],
-  "plugins": ["@typescript-eslint"],
-  "settings": {
-    "import/resolver": {
-      "typescript": {}
-    }
-  },
-  "rules": {
-    "no-unused-vars": "warn"
-  }
+  "extends": "./node_modules/gts/"
 }

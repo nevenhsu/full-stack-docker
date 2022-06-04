@@ -1,11 +1,11 @@
-import { useMemo, Props } from 'react'
+import React, { useMemo } from 'react'
 import CssBaseline from '@mui/material/CssBaseline'
 import { createTheme, ThemeProvider } from '@mui/material/styles'
 import { useAppSelector } from 'store/hooks'
 import { selectMode } from 'store/slices/userDefault'
 import { getDesignTokens } from './palette'
 
-function Provider(props: Props<any>) {
+function Provider(props: React.PropsWithChildren<any>) {
     const { children } = props
 
     const mode = useAppSelector(selectMode)

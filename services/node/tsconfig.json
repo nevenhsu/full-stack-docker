@@ -1,15 +1,16 @@
 {
+  "extends": "./node_modules/gts/tsconfig-google.json",
   "compilerOptions": {
     "baseUrl": ".",
-    "lib": ["es2020", "dom"],
+    "rootDir": ".",
     "outDir": "build",
-    "module": "commonjs",
-    "target": "es2019",
     "moduleResolution": "node",
+    "allowJs": true,
+    "skipLibCheck": true,
     "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
     "resolveJsonModule": true,
-    "sourceMap": true,
-    "allowJs": true
+    "isolatedModules": true
   },
-  "exclude": ["node_modules", "build"]
+  "include": ["src/**/*.ts", "test/**/*.ts"]
 }
